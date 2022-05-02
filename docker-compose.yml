@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  python-app:
+    build: .
+    command: /bin/bash
+    environment:
+      DISPLAY: $DISPLAY
+    volumes:
+      - ./:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.Xauthority:/root/.Xauthority
+    network_mode: "host"
